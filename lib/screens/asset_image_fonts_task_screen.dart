@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_trainee_2025/constants/image_constants.dart';
 
 class AssetImageFontsTaskScreen extends StatelessWidget {
   const AssetImageFontsTaskScreen({super.key});
@@ -12,7 +13,7 @@ class AssetImageFontsTaskScreen extends StatelessWidget {
           alignment: Alignment.center,
           children: [
             Image(
-              image: AssetImage("assets/images/background.png"),
+              image: AssetImage(ImageConstants.taskAssetImageBackground),
               fit: BoxFit.cover,
               height: double.infinity,
               width: double.infinity,
