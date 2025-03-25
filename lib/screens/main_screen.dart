@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_trainee_2025/screens/asset_image_fonts_task_screen.dart';
+import 'package:flutter_trainee_2025/screens/cupertino_task_screen.dart';
 import 'package:flutter_trainee_2025/screens/material_basic_layout_widgets_task_screen.dart';
 
 class MainScreen extends StatelessWidget {
@@ -21,6 +22,7 @@ class MainScreen extends StatelessWidget {
               title: "Material, Basic & Layout Widgets",
               taskScreen: MaterialBasicLayoutWidgetsTaskScreen(),
             ),
+            TaskButton(title: "Cupertino", taskScreen: CupertinoTaskScreen()),
           ],
         ),
       ),
