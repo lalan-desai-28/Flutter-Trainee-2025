@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_trainee_2025/screens/asset_image_fonts_task_screen.dart';
 import 'package:flutter_trainee_2025/screens/cupertino_task_screen.dart';
+import 'package:flutter_trainee_2025/screens/dialog_tabbar_navigationbar_csutom_widget_task_screen.dart';
 import 'package:flutter_trainee_2025/screens/material_basic_layout_widgets_task_screen.dart';
+import 'package:flutter_trainee_2025/widgets/task_button_widget.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -23,29 +25,12 @@ class MainScreen extends StatelessWidget {
               taskScreen: MaterialBasicLayoutWidgetsTaskScreen(),
             ),
             TaskButton(title: "Cupertino", taskScreen: CupertinoTaskScreen()),
+            TaskButton(
+              title: "Dialog, Tabbar, Navigationbar, Csutom Widget",
+              taskScreen: DialogTabbarNavigationbarCsutomWidgetTaskScreen(),
+            ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class TaskButton extends StatelessWidget {
-  final String title;
-  final Widget taskScreen;
-  const TaskButton({super.key, required this.title, required this.taskScreen});
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      child: ListTile(
-        onTap: () {
-          Navigator.of(
-            context,
-          ).push(MaterialPageRoute(builder: (context) => taskScreen));
-        },
-        title: Text(title),
-        trailing: Icon(Icons.arrow_forward),
       ),
     );
   }
