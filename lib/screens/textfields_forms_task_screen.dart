@@ -12,7 +12,6 @@ class TextfieldsFormsTaskScreen extends StatefulWidget {
 class _TextfieldsFormsTaskScreenState extends State<TextfieldsFormsTaskScreen> {
   final formKey = GlobalKey<FormState>();
 
-  final TextEditingController _nameController = TextEditingController();
   final TextEditingController _numberController = TextEditingController();
   final TextEditingController _emailAddressController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -22,6 +21,44 @@ class _TextfieldsFormsTaskScreenState extends State<TextfieldsFormsTaskScreen> {
   bool _passwordVisibility = false;
   bool _confirmPasswordVisibility = false;
 
+  Widget _buildNameField() {
+    return signUpFormField(
+      hintText: "Name",
+      prefixIcon: Icon(Icons.person),
+
+      validator: (value) {
+        if (value == null ||
+            value.isEmpty ||
+            !(RegExp(r"^[a-zA-Z ]+$").hasMatch(value))) {
+          return "Please enter a proper name.";
+        }
+        return null;
+      },
+      inputFormatters: [
+        FilteringTextInputFormatter(RegExp('[a-zA-Z ]'), allow: true),
+      ],
+    );
+  }
+
+  Widget _buildNumberField() {
+    return signUpFormField(
+      hintText: "Name",
+      prefixIcon: Icon(Icons.person),
+
+      validator: (value) {
+        if (value == null ||
+            value.isEmpty ||
+            !(RegExp(r"^[a-zA-Z ]+$").hasMatch(value))) {
+          return "Please enter a proper name.";
+        }
+        return null;
+      },
+      inputFormatters: [
+        FilteringTextInputFormatter(RegExp('[a-zA-Z ]'), allow: true),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,37 +67,12 @@ class _TextfieldsFormsTaskScreenState extends State<TextfieldsFormsTaskScreen> {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Form(
-            autovalidateMode: AutovalidateMode.always,
+            autovalidateMode: AutovalidateMode.onUnfocus,
             key: formKey,
             child: Column(
               spacing: 10,
               children: [
-                TextFormField(
-                  controller: _nameController,
-                  keyboardType: TextInputType.text,
-                  inputFormatters: [
-                    FilteringTextInputFormatter(
-                      RegExp('[a-zA-Z ]'),
-                      allow: true,
-                    ),
-                  ],
-                  validator: (value) {
-                    if (value == null ||
-                        value.isEmpty ||
-                        !(RegExp(r"^[a-zA-Z ]+$").hasMatch(value))) {
-                      return "Please enter a proper name.";
-                    }
-                    return null;
-                  },
-                  decoration: InputDecoration(
-                    prefixIcon: Icon(Icons.person),
-                    hintText: "Name",
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                  ),
-                ),
-
+                _buildNameField(),
                 TextFormField(
                   controller: _numberController,
                   maxLength: 10,
@@ -189,31 +201,7 @@ class _TextfieldsFormsTaskScreenState extends State<TextfieldsFormsTaskScreen> {
                     ),
                   ),
                 ),
-
-                FilledButton(
-                  style: ButtonStyle(),
-                  onPressed: () {
-                    FocusManager.instance.primaryFocus?.unfocus();
-                    setState(() {
-                      _passwordVisibility = false;
-                      _confirmPasswordVisibility = false;
-                    });
-                    if (formKey.currentState?.validate() ?? false) {
-                      const snackBar = SnackBar(
-                        backgroundColor: Colors.green,
-                        content: Text('Form validated successfully.'),
-                      );
-                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                    } else {
-                      const snackBar = SnackBar(
-                        backgroundColor: Colors.red,
-                        content: Text('Please fill the form properly.'),
-                      );
-                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                    }
-                  },
-                  child: Text("Signup"),
-                ),
+                _buildSigupButton(),
               ],
             ),
           ),
@@ -221,4 +209,52 @@ class _TextfieldsFormsTaskScreenState extends State<TextfieldsFormsTaskScreen> {
       ),
     );
   }
+
+  void onSignUpClick() {
+    FocusManager.instance.primaryFocus?.unfocus();
+    setState(() {
+      _passwordVisibility = false;
+      _confirmPasswordVisibility = false;
+    });
+    if (formKey.currentState?.validate() ?? false) {
+      const snackBar = SnackBar(
+        backgroundColor: Colors.green,
+        content: Text('Form validated successfully.'),
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    }
+  }
+
+  Widget _buildSigupButton() {
+    return FilledButton(
+      style: ButtonStyle(),
+      onPressed: () => onSignUpClick(),
+      child: Text("Signup"),
+    );
+  }
+}
+
+Widget signUpFormField({
+  required String hintText,
+  TextEditingController? controller,
+  bool obscureText = false,
+  TextInputType keyboardType = TextInputType.text,
+  Widget? prefixIcon,
+  Widget? suffixIcon,
+  String? Function(String?)? validator,
+  List<TextInputFormatter>? inputFormatters,
+}) {
+  return TextFormField(
+    controller: controller,
+    keyboardType: keyboardType,
+    validator: validator,
+    obscureText: obscureText,
+    inputFormatters: inputFormatters,
+    decoration: InputDecoration(
+      prefixIcon: prefixIcon,
+      suffixIcon: suffixIcon,
+      hintText: hintText,
+      border: OutlineInputBorder(borderRadius: BorderRadius.circular(20)),
+    ),
+  );
 }
