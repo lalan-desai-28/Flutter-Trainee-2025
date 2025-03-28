@@ -22,66 +22,62 @@ class _MaterialBasicLayoutWidgetsTaskScreenState
     return Scaffold(
       backgroundColor: backgroundColor,
       drawer: Drawer(
-        child: Drawer(
-          child: ListView(
-            children: [
-              DrawerHeader(
-                child: CircleAvatar(
-                  radius: 50,
-                  backgroundImage: NetworkImage(
-                    "https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg",
-                  ),
+        child: ListView(
+          children: [
+            DrawerHeader(
+              child: CircleAvatar(
+                radius: 50,
+                backgroundImage: NetworkImage(
+                  "https://t4.ftcdn.net/jpg/03/64/21/11/360_F_364211147_1qgLVxv1Tcq0Ohz3FawUfrtONzz8nq3e.jpg",
                 ),
               ),
-              ListTile(
-                leading: const Icon(Icons.image),
-                title: const Text('Image'),
-                onTap: () {
-                  setState(() {
-                    Navigator.pop(context);
-                    setState(() {
-                      currentPage = "Image";
-                    });
-                  });
-                },
-              ),
-              ListTile(
-                leading: const Icon(Icons.stacked_bar_chart),
-                title: const Text('Stack'),
-                onTap: () {
-                  setState(() {
-                    Navigator.pop(context);
-                    setState(() {
-                      currentPage = "Stack";
-                    });
-                  });
-                },
-              ),
-
-              ListTile(
-                leading: const Icon(Icons.color_lens),
-                title: const Text('Change Background'),
-                onTap: () {
+            ),
+            ListTile(
+              leading: const Icon(Icons.image),
+              title: const Text('Image'),
+              onTap: () {
+                setState(() {
                   Navigator.pop(context);
                   setState(() {
-                    backgroundColor = Color(math.Random().nextInt(0xffffffff));
+                    currentPage = "Image";
                   });
-                },
-              ),
-
-              ListTile(
-                leading: const Icon(Icons.radio_button_checked),
-                title: const Text('Snackbar'),
-                onTap: () {
+                });
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.stacked_bar_chart),
+              title: const Text('Stack'),
+              onTap: () {
+                setState(() {
                   Navigator.pop(context);
-                  const snackBar = SnackBar(
-                    content: Text('Wow! A snackbar!!!'),
-                  );
-                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                },
-              ),
-            ],
-          ),
+                  setState(() {
+                    currentPage = "Stack";
+                  });
+                });
+              },
+            ),
+
+            ListTile(
+              leading: const Icon(Icons.color_lens),
+              title: const Text('Change Background'),
+              onTap: () {
+                Navigator.pop(context);
+                setState(() {
+                  backgroundColor = Color(math.Random().nextInt(0xffffffff));
+                });
+              },
+            ),
+
+            ListTile(
+              leading: const Icon(Icons.radio_button_checked),
+              title: const Text('Snackbar'),
+              onTap: () {
+                Navigator.pop(context);
+                const snackBar = SnackBar(content: Text('Wow! A snackbar!!!'));
+                ScaffoldMessenger.of(context).showSnackBar(snackBar);
+              },
+            ),
+          ],
         ),
       ),
       appBar: AppBar(
