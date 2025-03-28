@@ -3,6 +3,7 @@ import 'package:flutter_trainee_2025/screens/asset_image_fonts_task_screen.dart'
 import 'package:flutter_trainee_2025/screens/cupertino_task_screen.dart';
 import 'package:flutter_trainee_2025/screens/dialog_tabbar_navigationbar_csutom_widget_task_screen.dart';
 import 'package:flutter_trainee_2025/screens/material_basic_layout_widgets_task_screen.dart';
+import 'package:flutter_trainee_2025/screens/textfields_forms_task_screen.dart';
 import 'package:flutter_trainee_2025/widgets/task_button_widget.dart';
 
 class MainScreen extends StatelessWidget {
@@ -26,8 +27,12 @@ class MainScreen extends StatelessWidget {
             ),
             TaskButton(title: "Cupertino", taskScreen: CupertinoTaskScreen()),
             TaskButton(
-              title: "Dialog, Tabbar, Navigationbar, Csutom Widget",
+              title: "Dialog, Tabbar, Navigationbar & Custom Widget",
               taskScreen: DialogTabbarNavigationbarCsutomWidgetTaskScreen(),
+            ),
+            TaskButton(
+              title: "TextFields & Forms",
+              taskScreen: TextfieldsFormsTaskScreen(),
             ),
           ],
         ),

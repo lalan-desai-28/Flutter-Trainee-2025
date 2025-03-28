@@ -59,19 +59,6 @@ class _MaterialBasicLayoutWidgetsTaskScreenState
               ),
 
               ListTile(
-                leading: const Icon(Icons.table_rows_sharp),
-                title: const Text('Row & Columns'),
-                onTap: () {
-                  setState(() {
-                    Navigator.pop(context);
-                    setState(() {
-                      currentPage = "Row&Columns";
-                    });
-                  });
-                },
-              ),
-
-              ListTile(
                 leading: const Icon(Icons.color_lens),
                 title: const Text('Change Background'),
                 onTap: () {
@@ -185,4 +172,3 @@ class StackPage extends StatelessWidget {
     );
   }
 }
-
