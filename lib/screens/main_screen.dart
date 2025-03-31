@@ -4,6 +4,7 @@ import 'package:flutter_trainee_2025/screens/cupertino/cupertino_task_screen.dar
 import 'package:flutter_trainee_2025/screens/dialog_tabbar_navigationbar_custom_widgets/dialog_tabbar_navigationbar_csutom_widget_task_screen.dart';
 import 'package:flutter_trainee_2025/screens/listview_and_gridview/listview_gridview_task_screen.dart';
 import 'package:flutter_trainee_2025/screens/material_basic_and_layout_widgets/material_basic_layout_widgets_task_screen.dart';
+import 'package:flutter_trainee_2025/screens/stateless_and_stateful_widgets/stateless_and_stateful_widgets_task_screen.dart';
 import 'package:flutter_trainee_2025/screens/textfields_and_forms/textfields_forms_task_screen.dart';
 import 'package:flutter_trainee_2025/widgets/task_button_widget.dart';
 
@@ -38,6 +39,10 @@ class MainScreen extends StatelessWidget {
             TaskButton(
               title: "Listview & Gridview",
               taskScreen: ListviewAndGridviewTaskScreen(),
+            ),
+            TaskButton(
+              title: "Stateless & Stateful Widgets",
+              taskScreen: StatelessAndStatefulWidgetsTaskScreen(),
             ),
           ],
         ),
