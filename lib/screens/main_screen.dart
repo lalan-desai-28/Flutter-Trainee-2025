@@ -47,6 +47,11 @@ class MainScreen extends StatelessWidget {
                 title: "Navigating & Passing Data BW Screens",
                 routePath: "/navigation_data_pass_bw_screens",
               ),
+
+              TaskButton(
+                title: "Applying Styles to Widgets",
+                routePath: "/applying_styles_screen",
+              ),
             ],
           ),
         ),
