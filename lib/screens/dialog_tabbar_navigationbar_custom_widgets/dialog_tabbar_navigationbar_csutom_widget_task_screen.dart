@@ -33,7 +33,6 @@ class _DialogTabbarNavigationbarCsutomWidgetTaskScreenState
           setState(() {
             currentIndex = value;
           });
-          print("$currentIndex is");
         },
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.list), label: "A"),
