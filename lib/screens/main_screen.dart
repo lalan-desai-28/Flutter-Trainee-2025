@@ -52,6 +52,8 @@ class MainScreen extends StatelessWidget {
                 title: "Applying Styles to Widgets",
                 routePath: "/applying_styles_screen",
               ),
+
+              TaskButton(title: "Streams", routePath: "/streams_screen"),
             ],
           ),
         ),

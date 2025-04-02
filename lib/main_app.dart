@@ -11,6 +11,7 @@ import 'package:flutter_trainee_2025/screens/navigating_and_passing_data_bw_scre
 import 'package:flutter_trainee_2025/screens/navigating_and_passing_data_bw_screens/pass_data_screen.dart';
 import 'package:flutter_trainee_2025/screens/navigating_and_passing_data_bw_screens/push_named_screen.dart';
 import 'package:flutter_trainee_2025/screens/stateless_and_stateful_widgets/stateless_and_stateful_widgets_task_screen.dart';
+import 'package:flutter_trainee_2025/screens/streams/streams_task_screen.dart';
 import 'package:flutter_trainee_2025/screens/textfields_and_forms/textfields_forms_task_screen.dart';
 
 class MainApp extends StatelessWidget {
@@ -36,6 +37,7 @@ class MainApp extends StatelessWidget {
       "/nested_b_screen": (context) => const NestedBScreen(),
       "/pass_data_screen": (context) => const PassDataScreen(),
       "/applying_styles_screen": (context) => const ApplyingStylesTaskScreen(),
+      "/streams_screen": (context) => const StreamsTaskScreen(),
     };
   }
 
