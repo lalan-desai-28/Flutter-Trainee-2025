@@ -54,6 +54,7 @@ class MainScreen extends StatelessWidget {
               ),
 
               TaskButton(title: "Streams", routePath: "/streams_screen"),
+              TaskButton(title: "Isolates", routePath: "/isolates_screen"),
             ],
           ),
         ),
