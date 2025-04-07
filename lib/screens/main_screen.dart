@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_trainee_2025/screens/animations/animation_task_screen.dart';
 import 'package:flutter_trainee_2025/widgets/task_button_widget.dart';
 
 class MainScreen extends StatelessWidget {
@@ -55,6 +56,7 @@ class MainScreen extends StatelessWidget {
 
               TaskButton(title: "Streams", routePath: "/streams_screen"),
               TaskButton(title: "Isolates", routePath: "/isolates_screen"),
+              TaskButton(title: "Animations", push: AnimationTaskScreen()),
             ],
           ),
         ),
