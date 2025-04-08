@@ -4,6 +4,7 @@ import 'package:flutter_trainee_2025/screens/applying_styles/applying_styles_tas
 import 'package:flutter_trainee_2025/screens/asset_images_and_fonts/asset_image_fonts_task_screen.dart';
 import 'package:flutter_trainee_2025/screens/dialog_tabbar_navigationbar_custom_widgets/dialog_tabbar_navigationbar_csutom_widget_task_screen.dart';
 import 'package:flutter_trainee_2025/screens/isolates/isolates_task_screen.dart';
+import 'package:flutter_trainee_2025/screens/json/json_task_screen.dart';
 import 'package:flutter_trainee_2025/screens/listview_and_gridview/listview_gridview_task_screen.dart';
 import 'package:flutter_trainee_2025/screens/main_screen.dart';
 import 'package:flutter_trainee_2025/screens/material_basic_and_layout_widgets/material_basic_layout_widgets_task_screen.dart';
@@ -42,6 +43,7 @@ class MainApp extends StatelessWidget {
       "/streams_screen": (context) => const StreamsTaskScreen(),
       "/isolates_screen": (context) => const IsolatesTaskScreen(),
       "/animation_screen": (context) => const AnimationTaskScreen(),
+      "/json_screen": (context) => const JsonTaskScreen(),
     };
   }
 

@@ -57,6 +57,10 @@ class MainScreen extends StatelessWidget {
               TaskButton(title: "Streams", routePath: "/streams_screen"),
               TaskButton(title: "Isolates", routePath: "/isolates_screen"),
               TaskButton(title: "Animations", push: AnimationTaskScreen()),
+              TaskButton(
+                title: "Json Serialization and Deserialization",
+                routePath: '/json_screen',
+              ),
             ],
           ),
         ),
