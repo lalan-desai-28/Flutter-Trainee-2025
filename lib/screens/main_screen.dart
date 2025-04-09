@@ -61,6 +61,10 @@ class MainScreen extends StatelessWidget {
                 title: "Json Serialization and Deserialization",
                 routePath: '/json_screen',
               ),
+              TaskButton(
+                title: "Custom Paint",
+                routePath: '/custom_paint_screen',
+              ),
             ],
           ),
         ),
