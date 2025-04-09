@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 
 class BottomNavigationBarPainter extends CustomPainter {
+
+  final int selectedIndex;
+  final IconData selectedIcon;
+
+  BottomNavigationBarPainter({required this.selectedIndex, required this.selectedIcon});
+
   @override
   void paint(Canvas canvas, Size size) {
     final paint =
@@ -11,23 +17,20 @@ class BottomNavigationBarPainter extends CustomPainter {
 
     final path = Path();
 
-    int itemLength = 5;
-    int selected = 3;
-
-    double w = size.width ;
+    double w = size.width * ((selectedIndex * 0.4) + 0.2);
     double m = 100;
-    double hm = m / 2;
+    double hm = m / 2 + 10;
     double h = size.height;
 
     path.moveTo(0, 0);
 
-    path.lineTo(0, size.height);
+    path.lineTo(0, h);
 
-    path.lineTo(size.width, size.height);
+    path.lineTo(size.width, h);
 
     path.lineTo(size.width, 0);
 
-    path.lineTo((size.width / 2) + m, 0);
+    path.lineTo((w / 2) + m, 0);
 
     path.quadraticBezierTo(w / 2 + hm, 0, w / 2 + 30, 30);
 
@@ -42,15 +45,15 @@ class BottomNavigationBarPainter extends CustomPainter {
       paint,
     );
 
-    final icon = Icons.train;
+
     TextPainter textPainter = TextPainter(textDirection: TextDirection.ltr);
     textPainter.text = TextSpan(
-      text: String.fromCharCode(icon.codePoint),
+      text: String.fromCharCode(selectedIcon.codePoint),
       style: TextStyle(
         color: Colors.blue,
         fontSize: 40,
-        fontFamily: icon.fontFamily,
-        package: icon.fontPackage,
+        fontFamily: selectedIcon.fontFamily,
+        package: selectedIcon.fontPackage,
       ),
     );
     textPainter.layout();

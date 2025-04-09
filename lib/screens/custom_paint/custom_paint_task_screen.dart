@@ -9,27 +9,42 @@ class CustomPaintTaskScreen extends StatefulWidget {
 }
 
 class _CustomPaintTaskScreenState extends State<CustomPaintTaskScreen> {
+  int selectedIndex = 0;
+
   Widget _bottomButton(IconData iconData, VoidCallback onPressed) {
-    return Expanded(
-      child: InkWell(onTap: onPressed, child: Icon(iconData, size: 30)),
-    );
+    return InkWell(onTap: onPressed, child: Icon(iconData, size: 30));
   }
 
   Widget _buildBottomNavigationBar() {
+    List<IconData> icons = [
+      Icons.home,
+      Icons.bluetooth,
+      Icons.train,
+      Icons.wifi,
+      Icons.person,
+    ];
+
     return SizedBox(
       height: 80,
+
       child: CustomPaint(
-        painter: BottomNavigationBarPainter(),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            _bottomButton(Icons.home, () {}),
-            _bottomButton(Icons.bluetooth, () {}),
-            Spacer(),
-            _bottomButton(Icons.wifi, () {}),
-            _bottomButton(Icons.person, () {}),
-          ],
+        painter: BottomNavigationBarPainter(selectedIndex: selectedIndex, selectedIcon : icons[selectedIndex]),
+        child: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemCount: icons.length,
+          itemBuilder: (context, index) {
+            return Container(
+              width: MediaQuery.of(context).size.width / 5,
+              child:
+                  selectedIndex != index
+                      ? _bottomButton(icons[index], () {
+                        setState(() {
+                          selectedIndex = index;
+                        });
+                      })
+                      : Container(),
+            );
+          },
         ),
       ),
     );
