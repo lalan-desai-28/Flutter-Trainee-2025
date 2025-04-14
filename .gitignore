@@ -121,3 +121,5 @@ app.*.symbols
 #IDE Related
 /.vscode
 /.idea
+.idea/workspace.xml
+/.idea
