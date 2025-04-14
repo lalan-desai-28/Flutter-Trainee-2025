@@ -69,6 +69,10 @@ class MainScreen extends StatelessWidget {
                 title: "Slivers",
                 routePath: '/slivers_screen',
               ),
+              TaskButton(
+                title: "App Lifecycle",
+                routePath: '/app_lifecycle_screen',
+              ),
             ],
           ),
         ),

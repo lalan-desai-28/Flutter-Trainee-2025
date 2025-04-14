@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_trainee_2025/screens/animations/animation_task_screen.dart';
+import 'package:flutter_trainee_2025/screens/app_lifecycle/app_lifecycle_task_screen.dart';
 import 'package:flutter_trainee_2025/screens/applying_styles/applying_styles_task_screen.dart';
 import 'package:flutter_trainee_2025/screens/asset_images_and_fonts/asset_image_fonts_task_screen.dart';
 import 'package:flutter_trainee_2025/screens/custom_paint/custom_paint_task_screen.dart';
@@ -48,6 +49,7 @@ class MainApp extends StatelessWidget {
       "/json_screen": (context) => const JsonTaskScreen(),
       "/custom_paint_screen": (context) => const CustomPaintTaskScreen(),
       "/slivers_screen": (context) => const SliversTaskScreen(),
+      "/app_lifecycle_screen": (context) => const AppLifecycleTaskScreen(),
     };
   }
 
