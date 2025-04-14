@@ -65,6 +65,10 @@ class MainScreen extends StatelessWidget {
                 title: "Custom Paint",
                 routePath: '/custom_paint_screen',
               ),
+              TaskButton(
+                title: "Slivers",
+                routePath: '/slivers_screen',
+              ),
             ],
           ),
         ),
