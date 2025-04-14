@@ -1,53 +1,30 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_trainee_2025/models/cart.dart';
-import 'package:flutter_trainee_2025/widgets/cart_item_widget.dart';
+import 'package:flutter_trainee_2025/utils/shared_preferences.dart';
 
-class JsonTaskScreen extends StatefulWidget {
-  const JsonTaskScreen({super.key});
+import '../../models/cart.dart';
+import '../../widgets/cart_item_widget.dart';
+
+class JsonPlusSharedPreferencesTaskScreen extends StatefulWidget {
+  const JsonPlusSharedPreferencesTaskScreen({super.key});
 
   @override
-  State<JsonTaskScreen> createState() => _JsonTaskScreenState();
+  State<JsonPlusSharedPreferencesTaskScreen> createState() =>
+      _JsonPlusSharedPreferencesTaskScreenState();
 }
 
-class _JsonTaskScreenState extends State<JsonTaskScreen> {
+class _JsonPlusSharedPreferencesTaskScreenState
+    extends State<JsonPlusSharedPreferencesTaskScreen> {
   List<CartItem> _cart = [];
 
-  AppBar _buildHeader() {
-    return AppBar(title: Text("Your cart"));
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    _getJson();
-  }
-
-  Widget _buildCartListView() {
-    return ListView.builder(
-      itemCount: _cart.length,
-      itemBuilder: (context, index) {
-        return CartItemWidget(
-          cartItem: _cart[index],
-          onItemZero: () {
-            setState(() {
-              _cart.removeAt(index);
-            });
-          },
-        );
-      },
-    );
-  }
-
-  void _getJson() {
-    final String rawJson = """
+  final String defaultJson = """
     [
       {
           "product_id": 101,
           "product_name": "Wireless Headphones",
           "price": 59.99,
-          "quantity": 2,
+          "quantity": 1,
           "in_stock": true
       },
       {
@@ -61,14 +38,14 @@ class _JsonTaskScreenState extends State<JsonTaskScreen> {
           "product_id": 103,
           "product_name": "Smartwatch",
           "price": 129.99,
-          "quantity": 3,
+          "quantity": 1,
           "in_stock": true
       },
       {
           "product_id": 104,
           "product_name": "USB-C Charger",
           "price": 19.99,
-          "quantity": 5,
+          "quantity": 1,
           "in_stock": true
       },
       {
@@ -82,14 +59,14 @@ class _JsonTaskScreenState extends State<JsonTaskScreen> {
           "product_id": 106,
           "product_name": "Portable Power Bank",
           "price": 24.49,
-          "quantity": 2,
+          "quantity": 1,
           "in_stock": true
       },
       {
           "product_id": 107,
           "product_name": "Gaming Mouse",
           "price": 45.00,
-          "quantity": 4,
+          "quantity": 1,
           "in_stock": true
       },
       {
@@ -110,12 +87,26 @@ class _JsonTaskScreenState extends State<JsonTaskScreen> {
           "product_id": 110,
           "product_name": "LED Monitor Light Bar",
           "price": 32.00,
-          "quantity": 6,
+          "quantity": 1,
           "in_stock": true
       }
     ]""";
 
-    List<dynamic> parsedListJson = jsonDecode(rawJson);
+  Future<void> _setJson(String rawJson) async {
+    final pref = await AppSharedPreferences.sharedPref;
+    await pref.setString("cart_json", rawJson);
+  }
+
+  Future<void> _resetJson() async {
+    _setJson(defaultJson);
+    _getJson();
+  }
+
+  Future<void> _getJson() async {
+    final pref = await AppSharedPreferences.sharedPref;
+    final prefJson = pref.getString("cart_json");
+
+    List<dynamic> parsedListJson = jsonDecode(prefJson ?? defaultJson);
     setState(() {
       _cart =
           parsedListJson.map((e) {
@@ -124,8 +115,43 @@ class _JsonTaskScreenState extends State<JsonTaskScreen> {
     });
   }
 
-  Widget _buildBody() {
-    return _buildCartListView();
+  @override
+  void initState() {
+    super.initState();
+    _getJson();
+  }
+
+  Widget _buildCartListView() {
+    return ListView.builder(
+      itemCount: _cart.length,
+      itemBuilder: (context, index) {
+        return CartItemWidget(
+          cartItem: _cart[index],
+          onItemZero: () {
+            setState(() {
+              _cart.removeAt(index);
+              _setJson(jsonEncode(_cart));
+            });
+          },
+          onItemAddOrRemove: () {
+            _setJson(jsonEncode(_cart));
+          },
+        );
+      },
+    );
+  }
+
+  List<Widget> _buildActionButtons() {
+    return [
+      IconButton(
+        onPressed: () => _resetJson(),
+        icon: Icon(Icons.restart_alt),
+      ),
+      IconButton(
+        onPressed: () => _showBuyJsonView(),
+        icon: Icon(Icons.shopping_cart),
+      ),
+    ];
   }
 
   void _showBuyJsonView() {
@@ -142,19 +168,19 @@ class _JsonTaskScreenState extends State<JsonTaskScreen> {
     );
   }
 
-  FloatingActionButton _buildBuyButton() {
-    return FloatingActionButton(
-      onPressed: () => _showBuyJsonView(),
-      child: Icon(Icons.shopping_cart),
-    );
+  Widget _buildBody() {
+    return _buildCartListView();
+  }
+
+  AppBar _buildAppbar() {
+    return AppBar(actions: _buildActionButtons());
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildHeader(),
       body: _buildBody(),
-      floatingActionButton: _buildBuyButton(),
+      appBar: _buildAppbar(),
     );
   }
 }

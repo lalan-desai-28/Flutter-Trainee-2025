@@ -7,6 +7,7 @@ import 'package:flutter_trainee_2025/screens/custom_paint/custom_paint_task_scre
 import 'package:flutter_trainee_2025/screens/dialog_tabbar_navigationbar_custom_widgets/dialog_tabbar_navigationbar_csutom_widget_task_screen.dart';
 import 'package:flutter_trainee_2025/screens/isolates/isolates_task_screen.dart';
 import 'package:flutter_trainee_2025/screens/json/json_task_screen.dart';
+import 'package:flutter_trainee_2025/screens/json_plus_shared_preferences/json_plus_shared_preferences_task_screen.dart';
 import 'package:flutter_trainee_2025/screens/listview_and_gridview/listview_gridview_task_screen.dart';
 import 'package:flutter_trainee_2025/screens/main_screen.dart';
 import 'package:flutter_trainee_2025/screens/material_basic_and_layout_widgets/material_basic_layout_widgets_task_screen.dart';
@@ -50,6 +51,7 @@ class MainApp extends StatelessWidget {
       "/custom_paint_screen": (context) => const CustomPaintTaskScreen(),
       "/slivers_screen": (context) => const SliversTaskScreen(),
       "/app_lifecycle_screen": (context) => const AppLifecycleTaskScreen(),
+      "/json_plus_shared_preferences": (context) => const JsonPlusSharedPreferencesTaskScreen(),
     };
   }
 
