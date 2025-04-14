@@ -73,6 +73,10 @@ class MainScreen extends StatelessWidget {
                 title: "App Lifecycle",
                 routePath: '/app_lifecycle_screen',
               ),
+              TaskButton(
+                title: "Json + Shared Preferences",
+                routePath: '/json_plus_shared_preferences',
+              ),
             ],
           ),
         ),

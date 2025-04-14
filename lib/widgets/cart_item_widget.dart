@@ -4,10 +4,13 @@ import 'package:flutter_trainee_2025/models/cart.dart';
 class CartItemWidget extends StatefulWidget {
   final CartItem cartItem;
   final VoidCallback onItemZero;
+  final VoidCallback? onItemAddOrRemove;
+
   const CartItemWidget({
     super.key,
     required this.cartItem,
     required this.onItemZero,
+    this.onItemAddOrRemove
   });
 
   @override
@@ -16,16 +19,17 @@ class CartItemWidget extends StatefulWidget {
 
 class CartItemWidgetState extends State<CartItemWidget> {
   void _incrementCounter() {
+    if(widget.onItemAddOrRemove != null) widget.onItemAddOrRemove!();
     setState(() {
       widget.cartItem.quantity = widget.cartItem.quantity! + 1;
     });
   }
 
   void decrementCounter() {
+    if(widget.onItemAddOrRemove != null) widget.onItemAddOrRemove!();
     if (widget.cartItem.quantity! < 2) {
       return widget.onItemZero();
     }
-
     setState(() {
       widget.cartItem.quantity = widget.cartItem.quantity! - 1;
     });
