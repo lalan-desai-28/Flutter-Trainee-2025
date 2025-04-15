@@ -13,4 +13,8 @@ abstract final class ImageConstants {
   static const String pepperoniPizza = "$_baseDir/pepperoni_pizza.png";
   static const String seafoodPizza = "$_baseDir/seafood_pizza.png";
   static const String vegetarianaPizza = "$_baseDir/vegetariana_pizza.png";
+
+  static const String wirelessMouse = "$_baseDir/mouse.jpg";
+  static const String wirelessKeyboard = "$_baseDir/keyboard.jpg";
+
 }

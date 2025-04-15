@@ -77,6 +77,10 @@ class MainScreen extends StatelessWidget {
                 title: "Json + Shared Preferences",
                 routePath: '/json_plus_shared_preferences',
               ),
+              TaskButton(
+                title: "Responsive",
+                routePath: '/responsive_screen',
+              ),
             ],
           ),
         ),
