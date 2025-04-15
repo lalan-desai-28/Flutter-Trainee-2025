@@ -1,7 +1,15 @@
 class Product {
   String name;
-  String imageUrl;
   double price;
+  String? description;
+  String? imageUrl;
+  String? assetPath;
 
-  Product(this.name, this.imageUrl, this.price);
+  Product(
+    this.name,
+    this.price, {
+    this.description,
+    this.assetPath,
+    this.imageUrl,
+  });
 }

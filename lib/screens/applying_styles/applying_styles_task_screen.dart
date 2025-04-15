@@ -13,12 +13,14 @@ class _ApplyingStylesTaskScreenState extends State<ApplyingStylesTaskScreen> {
   final List<Product> _products = [
     Product(
       "Classmates pens",
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6pgnx49R8V2aLXpnrD8PuEgU1_JfnO5v6HQ&s",
+      imageUrl:
+          "https://www.itcportal.com/brands-microsite/images/classmate/classmate07-big.png",
       120.5,
     ),
     Product(
       "Colorbox",
-      "https://www.itcportal.com/brands-microsite/images/classmate/classmate07-big.png",
+      imageUrl:
+          "https://www.itcportal.com/brands-microsite/images/classmate/classmate07-big.png",
       150.00,
     ),
   ];
@@ -59,7 +61,7 @@ class _ApplyingStylesTaskScreenState extends State<ApplyingStylesTaskScreen> {
                         height: 200,
                         width: double.infinity,
                         fit: BoxFit.cover,
-                        image: NetworkImage(products[index].imageUrl),
+                        image: NetworkImage(products[index].imageUrl ?? ""),
                       ),
                       Positioned(
                         bottom: 0,

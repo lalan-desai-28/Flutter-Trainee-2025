@@ -16,6 +16,7 @@ import 'package:flutter_trainee_2025/screens/navigating_and_passing_data_bw_scre
 import 'package:flutter_trainee_2025/screens/navigating_and_passing_data_bw_screens/nested_b_screen.dart';
 import 'package:flutter_trainee_2025/screens/navigating_and_passing_data_bw_screens/pass_data_screen.dart';
 import 'package:flutter_trainee_2025/screens/navigating_and_passing_data_bw_screens/push_named_screen.dart';
+import 'package:flutter_trainee_2025/screens/responsive/responsive_task_screen.dart';
 import 'package:flutter_trainee_2025/screens/slivers/slivers_task_screen.dart';
 import 'package:flutter_trainee_2025/screens/stateless_and_stateful_widgets/stateless_and_stateful_widgets_task_screen.dart';
 import 'package:flutter_trainee_2025/screens/streams/streams_task_screen.dart';
@@ -52,6 +53,7 @@ class MainApp extends StatelessWidget {
       "/slivers_screen": (context) => const SliversTaskScreen(),
       "/app_lifecycle_screen": (context) => const AppLifecycleTaskScreen(),
       "/json_plus_shared_preferences": (context) => const JsonPlusSharedPreferencesTaskScreen(),
+      "/responsive_screen": (context) => const ResponsiveTaskScreen(),
     };
   }
 
