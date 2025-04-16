@@ -5,6 +5,7 @@ import 'package:flutter_trainee_2025/screens/applying_styles/applying_styles_tas
 import 'package:flutter_trainee_2025/screens/asset_images_and_fonts/asset_image_fonts_task_screen.dart';
 import 'package:flutter_trainee_2025/screens/custom_paint/custom_paint_task_screen.dart';
 import 'package:flutter_trainee_2025/screens/dialog_tabbar_navigationbar_custom_widgets/dialog_tabbar_navigationbar_csutom_widget_task_screen.dart';
+import 'package:flutter_trainee_2025/screens/hive_plus_sqlite/hive_plus_sqlite_task_screen.dart';
 import 'package:flutter_trainee_2025/screens/isolates/isolates_task_screen.dart';
 import 'package:flutter_trainee_2025/screens/json/json_task_screen.dart';
 import 'package:flutter_trainee_2025/screens/json_plus_shared_preferences/json_plus_shared_preferences_task_screen.dart';
@@ -54,6 +55,7 @@ class MainApp extends StatelessWidget {
       "/app_lifecycle_screen": (context) => const AppLifecycleTaskScreen(),
       "/json_plus_shared_preferences": (context) => const JsonPlusSharedPreferencesTaskScreen(),
       "/responsive_screen": (context) => const ResponsiveTaskScreen(),
+      "/hive_plus_sqlite_screen": (context) => const HivePlusSqliteTaskScreen(),
     };
   }
 
