@@ -1,0 +1,1 @@
+enum StorageFacility { hive, sqlite }
