@@ -85,6 +85,10 @@ class MainScreen extends StatelessWidget {
                 title: "Hive + Sqlite",
                 routePath: '/hive_plus_sqlite_screen',
               ),
+              TaskButton(
+                title: "Getx",
+                routePath: '/getx_screen',
+              ),
             ],
           ),
         ),

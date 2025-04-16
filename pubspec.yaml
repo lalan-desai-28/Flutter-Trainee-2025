@@ -19,6 +19,7 @@ dependencies:
   hive: ^2.2.3
   hive_flutter:
   sqflite:
+  get: ^4.7.2
 
 dev_dependencies:
   flutter_test:
