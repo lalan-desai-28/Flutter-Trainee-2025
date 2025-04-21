@@ -9,7 +9,7 @@ void main() async {
   // Hive initialization
   await Hive.initFlutter();
   Hive.registerAdapter(ToDoAdapter());
-  HiveHelper.initializeDatabase();
+  HiveHelper();
 
   // Sqlite initialization
   SqliteHelper.initializeDatabase();

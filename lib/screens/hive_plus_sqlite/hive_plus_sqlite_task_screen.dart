@@ -25,7 +25,7 @@ class _HivePlusSqliteTaskScreenState extends State<HivePlusSqliteTaskScreen> {
       case StorageFacility.hive:
         {
           temp =
-              HiveHelper.toDoBox.values
+              HiveHelper().toDoBox.values
                   .map((e) => ToDo(title: e.title, description: e.description))
                   .toList();
         }
@@ -55,9 +55,9 @@ class _HivePlusSqliteTaskScreenState extends State<HivePlusSqliteTaskScreen> {
     switch (_selectedStorageFacility) {
       case StorageFacility.hive:
         {
-          HiveHelper.toDoBox.clear().then((value) async {
+          HiveHelper().toDoBox.clear().then((value) async {
             for (var element in _todos) {
-              await HiveHelper.toDoBox.add(element);
+              await HiveHelper().toDoBox.add(element);
             }
           });
         }

@@ -93,7 +93,7 @@ class _JsonPlusSharedPreferencesTaskScreenState
     ]""";
 
   Future<void> _setJson(String rawJson) async {
-    final pref = await AppSharedPreferences.sharedPref;
+    final pref = await AppSharedPreferences().sharedPref;
     await pref.setString("cart_json", rawJson);
   }
 
@@ -103,7 +103,7 @@ class _JsonPlusSharedPreferencesTaskScreenState
   }
 
   Future<void> _getJson() async {
-    final pref = await AppSharedPreferences.sharedPref;
+    final pref = await AppSharedPreferences().sharedPref;
     final prefJson = pref.getString("cart_json");
 
     List<dynamic> parsedListJson = jsonDecode(prefJson ?? defaultJson);

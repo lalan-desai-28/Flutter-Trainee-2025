@@ -3,9 +3,19 @@ import 'package:hive/hive.dart';
 import '../models/todo.dart';
 
 class HiveHelper {
-  static late Box<ToDo> toDoBox;
+  static final HiveHelper _hiveHelper = HiveHelper._internal();
 
-  static Future<void> initializeDatabase() async {
+  late Box<ToDo> toDoBox;
+
+  Future<void> _initializeDatabase() async {
     toDoBox = await Hive.openBox<ToDo>('hiveBox');
+  }
+
+  factory HiveHelper() {
+    return _hiveHelper;
+  }
+
+  HiveHelper._internal() {
+    _initializeDatabase();
   }
 }

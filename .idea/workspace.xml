@@ -5,15 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ba2e1f20-74f0-44d5-9e3e-620f02aa719e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/screens/json_plus_shared_preferences/json_plus_shared_preferences_task_screen.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/utils/shared_preferences.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/flutter_trainee_2025.iml" beforeDir="false" afterPath="$PROJECT_DIR$/flutter_trainee_2025.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main_app.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main_app.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/json/json_task_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/json/json_task_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/main_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/main_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/widgets/cart_item_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widgets/cart_item_widget.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/hive_plus_sqlite/hive_plus_sqlite_task_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/hive_plus_sqlite/hive_plus_sqlite_task_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/json_plus_shared_preferences/json_plus_shared_preferences_task_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/json_plus_shared_preferences/json_plus_shared_preferences_task_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/hive.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/hive.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils/shared_preferences.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils/shared_preferences.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +84,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "task__json__plus__shared__preferences",
+    "git-widget-placeholder": "development",
     "io.flutter.reload.alreadyRun": "true",
     "kotlin-language-version-configured": "true",
     "show.migrate.to.gradle.popup": "false"
