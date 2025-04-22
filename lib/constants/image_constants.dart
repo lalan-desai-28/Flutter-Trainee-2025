@@ -17,4 +17,6 @@ abstract final class ImageConstants {
   static const String wirelessMouse = "$_baseDir/mouse.jpg";
   static const String wirelessKeyboard = "$_baseDir/keyboard.jpg";
 
+  static const String profileImagePlaceholder = "$_baseDir/profile_image_placeholder.png";
+
 }

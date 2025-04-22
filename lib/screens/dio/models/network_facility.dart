@@ -1,0 +1,3 @@
+enum NetworkFacility{
+  dio, http
+}

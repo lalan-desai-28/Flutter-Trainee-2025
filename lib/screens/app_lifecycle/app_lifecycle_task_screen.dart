@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/scheduler.dart';
 
 class AppLifecycleTaskScreen extends StatefulWidget {
   const AppLifecycleTaskScreen({super.key});
@@ -12,7 +11,6 @@ class AppLifecycleTaskScreen extends StatefulWidget {
 
 class _AppLifecycleTaskScreenState extends State<AppLifecycleTaskScreen> {
   late final AppLifecycleListener _listener;
-  late AppLifecycleState? _state;
 
   late Timer _timer;
   int time = 0;
@@ -37,7 +35,6 @@ class _AppLifecycleTaskScreenState extends State<AppLifecycleTaskScreen> {
 
     _startTimer();
 
-    _state = SchedulerBinding.instance.lifecycleState;
     _listener = AppLifecycleListener(
       onResume: () {
         _startTimer();
