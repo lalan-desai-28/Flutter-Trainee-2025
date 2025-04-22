@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_trainee_2025/screens/animations/animation_task_screen.dart';
 import 'package:flutter_trainee_2025/widgets/task_button_widget.dart';
+import 'package:get/get.dart';
+
+import 'dio/utils/access_token_helper.dart';
+
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -65,10 +69,7 @@ class MainScreen extends StatelessWidget {
                 title: "Custom Paint",
                 routePath: '/custom_paint_screen',
               ),
-              TaskButton(
-                title: "Slivers",
-                routePath: '/slivers_screen',
-              ),
+              TaskButton(title: "Slivers", routePath: '/slivers_screen'),
               TaskButton(
                 title: "App Lifecycle",
                 routePath: '/app_lifecycle_screen',
@@ -77,17 +78,22 @@ class MainScreen extends StatelessWidget {
                 title: "Json + Shared Preferences",
                 routePath: '/json_plus_shared_preferences',
               ),
-              TaskButton(
-                title: "Responsive",
-                routePath: '/responsive_screen',
-              ),
+              TaskButton(title: "Responsive", routePath: '/responsive_screen'),
               TaskButton(
                 title: "Hive + Sqlite",
                 routePath: '/hive_plus_sqlite_screen',
               ),
+              TaskButton(title: "Getx", routePath: '/getx_screen'),
               TaskButton(
-                title: "Getx",
-                routePath: '/getx_screen',
+                title: "Dio + HTTP",
+                onTap: () {
+                  String? token = AccessTokenHelper().getAccessToken();
+                  if (token != null && token != "") {
+                    Get.toNamed('/home_screen');
+                  } else {
+                    Get.toNamed('/signup_screen');
+                  }
+                },
               ),
             ],
           ),

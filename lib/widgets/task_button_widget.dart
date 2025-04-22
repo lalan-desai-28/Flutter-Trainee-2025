@@ -4,14 +4,25 @@ class TaskButton extends StatelessWidget {
   final String title;
   final String? routePath;
   final Widget? push;
+  final VoidCallback? onTap;
 
-  const TaskButton({super.key, required this.title, this.routePath, this.push});
+  const TaskButton({
+    super.key,
+    required this.title,
+    this.routePath,
+    this.push,
+    this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Card(
       child: ListTile(
         onTap: () {
+          if (onTap != null) {
+            onTap!();
+          }
+
           if (push != null) {
             Navigator.of(context).push(
               PageRouteBuilder(
