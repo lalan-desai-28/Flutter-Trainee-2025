@@ -25,6 +25,7 @@ import 'package:flutter_trainee_2025/screens/slivers/slivers_task_screen.dart';
 import 'package:flutter_trainee_2025/screens/stateless_and_stateful_widgets/stateless_and_stateful_widgets_task_screen.dart';
 import 'package:flutter_trainee_2025/screens/streams/streams_task_screen.dart';
 import 'package:flutter_trainee_2025/screens/textfields_and_forms/textfields_forms_task_screen.dart';
+import 'package:flutter_trainee_2025/screens/theme/theme_demo_screen.dart';
 import 'package:get/get.dart';
 
 class MainApp extends StatelessWidget {
@@ -64,6 +65,7 @@ class MainApp extends StatelessWidget {
       "/getx_screen": (context) => const GetxTaskScreen(),
       "/signup_screen": (context) => const SignupScreen(),
       "/home_screen": (context) => const HomeScreen(),
+      "/theme_screen": (context) => const ThemeDemoScreen(),
     };
   }
 
@@ -71,6 +73,10 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData.dark(),
+
+      darkTheme: ThemeData.dark(),
+      themeMode: ThemeMode.system,
       title: 'Flutter Trainee 2025',
       routes: _getRoutes(context),
     );
