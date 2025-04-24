@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
 import 'package:flutter_trainee_2025/screens/dio/models/api_request_fail_model.dart';
 import 'package:get/get.dart';
 
@@ -17,7 +18,22 @@ class DioClient {
     dio = Dio(BaseOptions(baseUrl: "https://api-uapsnap.venko.info/api/v1/"));
 
     dio.interceptors.add(
-      LogInterceptor(request: true, responseBody: true, requestBody: true,requestHeader: true),
+      LogInterceptor(
+        request: true,
+        responseBody: true,
+        requestBody: true,
+        requestHeader: true,
+      ),
+    );
+
+    dio.interceptors.add(
+      DioCacheInterceptor(
+        options: CacheOptions(
+          store: MemCacheStore(),
+          policy: CachePolicy.refreshForceCache,
+          maxStale: const Duration(days: 1),
+        ),
+      ),
     );
 
     dio.interceptors.add(

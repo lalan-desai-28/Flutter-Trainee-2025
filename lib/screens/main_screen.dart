@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 
 import 'dio/utils/access_token_helper.dart';
 
-
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
 
@@ -95,6 +94,7 @@ class MainScreen extends StatelessWidget {
                   }
                 },
               ),
+              TaskButton(title: "Theme", routePath: '/theme_screen'),
             ],
           ),
         ),
